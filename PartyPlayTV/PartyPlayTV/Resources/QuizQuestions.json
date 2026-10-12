@@ -1,0 +1,617 @@
+[
+  {
+    "id": "gk_001",
+    "questionText": "Which ancient wonder of the world was located in the city of Alexandria?",
+    "options": [
+      { "id": "A", "text": "The Colossus" },
+      { "id": "B", "text": "The Lighthouse (Pharos)" },
+      { "id": "C", "text": "Hanging Gardens" },
+      { "id": "D", "text": "Temple of Artemis" }
+    ],
+    "correctAnswerId": "B",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The Lighthouse of Alexandria, built by the Ptolemaic Kingdom, stood on the island of Pharos and was over 100 meters tall.",
+    "source": "World History Encyclopedia"
+  },
+  {
+    "id": "gk_002",
+    "questionText": "What is the rarest naturally occurring blood type in the global human population?",
+    "options": [
+      { "id": "A", "text": "O Positive" },
+      { "id": "B", "text": "B Negative" },
+      { "id": "C", "text": "AB Negative" },
+      { "id": "D", "text": "A Negative" }
+    ],
+    "correctAnswerId": "C",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "AB Negative is found in less than 1% of the world's population, making it the rarest common ABO type.",
+    "source": "Red Cross Blood Services"
+  },
+  {
+    "id": "gk_003",
+    "questionText": "In which year did the modern Olympic Games debut in Athens, Greece?",
+    "options": [
+      { "id": "A", "text": "1896" },
+      { "id": "B", "text": "1900" },
+      { "id": "C", "text": "1924" },
+      { "id": "D", "text": "1888" }
+    ],
+    "correctAnswerId": "A",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The first modern international Olympic Games were held at the Panathenaic Stadium in Athens in April 1896.",
+    "source": "International Olympic Committee"
+  },
+  {
+    "id": "gk_004",
+    "questionText": "Which desert is the largest non-polar desert on Earth?",
+    "options": [
+      { "id": "A", "text": "Gobi Desert" },
+      { "id": "B", "text": "Kalahari Desert" },
+      { "id": "C", "text": "Sahara Desert" },
+      { "id": "D", "text": "Arabian Desert" }
+    ],
+    "correctAnswerId": "C",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The Sahara spans roughly 9.2 million square kilometers across North Africa, making it the largest hot desert.",
+    "source": "National Geographic"
+  },
+  {
+    "id": "gk_005",
+    "questionText": "Who was the first female aviator to fly solo non-stop across the Atlantic Ocean?",
+    "options": [
+      { "id": "A", "text": "Valentina Tereshkova" },
+      { "id": "B", "text": "Amelia Earhart" },
+      { "id": "C", "text": "Bessie Coleman" },
+      { "id": "D", "text": "Jacqueline Cochran" }
+    ],
+    "correctAnswerId": "B",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "Amelia Earhart accomplished her historic solo transatlantic flight in 1932 aboard a Lockheed Vega 5B.",
+    "source": "Smithsonian National Air and Space Museum"
+  },
+  {
+    "id": "gk_006",
+    "questionText": "Which nation has the longest coastline in the world?",
+    "options": [
+      { "id": "A", "text": "Russia" },
+      { "id": "B", "text": "Australia" },
+      { "id": "C", "text": "Indonesia" },
+      { "id": "D", "text": "Canada" }
+    ],
+    "correctAnswerId": "D",
+    "category": "General Knowledge",
+    "difficulty": "Hard",
+    "explanation": "Canada boasts over 243,000 kilometers of coastline spanning the Atlantic, Pacific, and Arctic oceans.",
+    "source": "World Atlas"
+  },
+  {
+    "id": "gk_007",
+    "questionText": "What treaty signed in 1648 concluded the devastating Thirty Years' War in Europe?",
+    "options": [
+      { "id": "A", "text": "Treaty of Utrecht" },
+      { "id": "B", "text": "Peace of Westphalia" },
+      { "id": "C", "text": "Treaty of Versailles" },
+      { "id": "D", "text": "Congress of Vienna" }
+    ],
+    "correctAnswerId": "B",
+    "category": "General Knowledge",
+    "difficulty": "Hard",
+    "explanation": "The Peace of Westphalia established modern concepts of sovereign nation-states and religious co-existence.",
+    "source": "Encyclopedia Britannica"
+  },
+  {
+    "id": "st_001",
+    "questionText": "What programming language was created by Chris Lattner and first revealed by Apple in 2014?",
+    "options": [
+      { "id": "A", "text": "Kotlin" },
+      { "id": "B", "text": "Rust" },
+      { "id": "C", "text": "Swift" },
+      { "id": "D", "text": "Go" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Science & Technology",
+    "difficulty": "Easy",
+    "explanation": "Apple introduced Swift at WWDC 2014 as a modern, type-safe successor to Objective-C.",
+    "source": "Apple Developer Documentation"
+  },
+  {
+    "id": "st_002",
+    "questionText": "What is the speed of light in a vacuum, rounded to the nearest thousand kilometers per second?",
+    "options": [
+      { "id": "A", "text": "150,000 km/s" },
+      { "id": "B", "text": "299,792 km/s" },
+      { "id": "C", "text": "343,000 km/s" },
+      { "id": "D", "text": "500,000 km/s" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Science & Technology",
+    "difficulty": "Medium",
+    "explanation": "The speed of light in vacuum (c) is exactly 299,792,458 meters per second (~300,000 km/s).",
+    "source": "NIST Constants"
+  },
+  {
+    "id": "st_003",
+    "questionText": "Which subatomic particle carries a negative electric charge?",
+    "options": [
+      { "id": "A", "text": "Proton" },
+      { "id": "B", "text": "Neutron" },
+      { "id": "C", "text": "Electron" },
+      { "id": "D", "text": "Positron" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Science & Technology",
+    "difficulty": "Easy",
+    "explanation": "Electrons orbit the atomic nucleus and have an elementary electric charge of -1.",
+    "source": "CERN Education"
+  },
+  {
+    "id": "st_004",
+    "questionText": "What fundamental breakthrough was introduced by the 2017 Google paper 'Attention Is All You Need'?",
+    "options": [
+      { "id": "A", "text": "Convolutional Neural Networks" },
+      { "id": "B", "text": "Transformer Architecture" },
+      { "id": "C", "text": "Random Forest Classifiers" },
+      { "id": "D", "text": "Support Vector Machines" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Science & Technology",
+    "difficulty": "Hard",
+    "explanation": "The Transformer architecture revolutionized Natural Language Processing and powers modern LLMs.",
+    "source": "NeurIPS 2017 Archive"
+  },
+  {
+    "id": "st_005",
+    "questionText": "What does the 'm' stand for in Apple's Silicon architecture branding (e.g., M1, M2, M3)?",
+    "options": [
+      { "id": "A", "text": "Modular" },
+      { "id": "B", "text": "Micro" },
+      { "id": "C", "text": "Mac" },
+      { "id": "D", "text": "Machine" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Science & Technology",
+    "difficulty": "Medium",
+    "explanation": "The 'M' series chip designation represents Apple Silicon designed specifically for the Mac and iPad lines.",
+    "source": "Apple Press Archive"
+  },
+  {
+    "id": "st_006",
+    "questionText": "Which planet in our solar system has the most confirmed natural moons as of recent astronomical surveys?",
+    "options": [
+      { "id": "A", "text": "Jupiter" },
+      { "id": "B", "text": "Saturn" },
+      { "id": "C", "text": "Uranus" },
+      { "id": "D", "text": "Neptune" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Science & Technology",
+    "difficulty": "Hard",
+    "explanation": "Saturn holds over 140 confirmed natural satellites, surpassing Jupiter's count.",
+    "source": "NASA Solar System Exploration"
+  },
+  {
+    "id": "st_007",
+    "questionText": "In cryptography and Bitcoin, which cryptographic hash algorithm is used for proof-of-work mining?",
+    "options": [
+      { "id": "A", "text": "MD5" },
+      { "id": "B", "text": "SHA-256" },
+      { "id": "C", "text": "RSA-2048" },
+      { "id": "D", "text": "AES-128" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Science & Technology",
+    "difficulty": "Medium",
+    "explanation": "Bitcoin utilizes double SHA-256 (Secure Hash Algorithm 256-bit) to hash block headers.",
+    "source": "Bitcoin Whitepaper"
+  },
+  {
+    "id": "mv_001",
+    "questionText": "Which sci-fi blockbuster directed by Christopher Nolan features a wormhole near Saturn and time dilation on Miller's planet?",
+    "options": [
+      { "id": "A", "text": "Inception" },
+      { "id": "B", "text": "Tenet" },
+      { "id": "C", "text": "Interstellar" },
+      { "id": "D", "text": "Oppenheimer" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Movies & Entertainment",
+    "difficulty": "Easy",
+    "explanation": "Interstellar (2014) consulted theoretical physicist Kip Thorne to accurately portray the gargantua black hole.",
+    "source": "Warner Bros. Pictures"
+  },
+  {
+    "id": "mv_002",
+    "questionText": "Which film won the Academy Award for Best Picture in 2020, becoming the first non-English film to win the top prize?",
+    "options": [
+      { "id": "A", "text": "Roma" },
+      { "id": "B", "text": "Parasite" },
+      { "id": "C", "text": "Drive My Car" },
+      { "id": "D", "text": "Life Is Beautiful" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Movies & Entertainment",
+    "difficulty": "Medium",
+    "explanation": "Bong Joon-ho's South Korean thriller 'Parasite' made Oscar history by winning both Best Picture and Best International Feature.",
+    "source": "Academy of Motion Picture Arts and Sciences"
+  },
+  {
+    "id": "mv_003",
+    "questionText": "Who composed the legendary musical scores for Star Wars, Jurassic Park, and Indiana Jones?",
+    "options": [
+      { "id": "A", "text": "Hans Zimmer" },
+      { "id": "B", "text": "Ennio Morricone" },
+      { "id": "C", "text": "John Williams" },
+      { "id": "D", "text": "Howard Shore" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Movies & Entertainment",
+    "difficulty": "Easy",
+    "explanation": "John Williams has received over 50 Academy Award nominations for his iconic film themes.",
+    "source": "Grammy Museum"
+  },
+  {
+    "id": "mv_004",
+    "questionText": "In Marvel Studios' Infinity Saga, which Infinity Stone was encased inside the Tesseract?",
+    "options": [
+      { "id": "A", "text": "Space Stone" },
+      { "id": "B", "text": "Mind Stone" },
+      { "id": "C", "text": "Power Stone" },
+      { "id": "D", "text": "Time Stone" }
+    ],
+    "correctAnswerId": "A",
+    "category": "Movies & Entertainment",
+    "difficulty": "Medium",
+    "explanation": "The glowing blue cube known as the Tesseract housed the Space Stone, capable of teleportation across galaxies.",
+    "source": "Marvel Cinematic Universe Guide"
+  },
+  {
+    "id": "mv_005",
+    "questionText": "Which 1994 animation was the first Disney feature film created from an original story rather than an existing fairytale?",
+    "options": [
+      { "id": "A", "text": "Beauty and the Beast" },
+      { "id": "B", "text": "The Lion King" },
+      { "id": "C", "text": "Aladdin" },
+      { "id": "D", "text": "Mulan" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Movies & Entertainment",
+    "difficulty": "Medium",
+    "explanation": "The Lion King was Disney's first original script, though inspired thematically by Shakespeare's Hamlet.",
+    "source": "Walt Disney Animation Studios"
+  },
+  {
+    "id": "mv_006",
+    "questionText": "Which actor portrayed J. Robert Oppenheimer in Christopher Nolan's 2023 biographical epic?",
+    "options": [
+      { "id": "A", "text": "Christian Bale" },
+      { "id": "B", "text": "Robert Downey Jr." },
+      { "id": "C", "text": "Cillian Murphy" },
+      { "id": "D", "text": "Matt Damon" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Movies & Entertainment",
+    "difficulty": "Easy",
+    "explanation": "Cillian Murphy earned the Academy Award for Best Actor for his captivating portrayal of Oppenheimer.",
+    "source": "Universal Pictures"
+  },
+  {
+    "id": "mv_007",
+    "questionText": "In the animated series 'Avatar: The Last Airbender', what type of animal is Appa?",
+    "options": [
+      { "id": "A", "text": "Flying Bison" },
+      { "id": "B", "text": "Winged Lemur" },
+      { "id": "C", "text": "Badgermole" },
+      { "id": "D", "text": "Sky Cheetah" }
+    ],
+    "correctAnswerId": "A",
+    "category": "Movies & Entertainment",
+    "difficulty": "Easy",
+    "explanation": "Appa is Aang's loyal, six-legged flying bison and primary sky-transport.",
+    "source": "Nickelodeon Animation"
+  },
+  {
+    "id": "gm_001",
+    "questionText": "In 'The Legend of Zelda' franchise, what three virtues are represented by the pieces of the Triforce?",
+    "options": [
+      { "id": "A", "text": "Hope, Love, Peace" },
+      { "id": "B", "text": "Power, Wisdom, Courage" },
+      { "id": "C", "text": "Strength, Faith, Truth" },
+      { "id": "D", "text": "Light, Shadow, Spirit" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Gaming",
+    "difficulty": "Easy",
+    "explanation": "The sacred relic consists of Power (Din/Ganon), Wisdom (Nayru/Zelda), and Courage (Farore/Link).",
+    "source": "Nintendo Hyrule Historia"
+  },
+  {
+    "id": "gm_002",
+    "questionText": "Which gaming masterpiece released in 2011 was created by Swedish developer Markus 'Notch' Persson?",
+    "options": [
+      { "id": "A", "text": "Terraria" },
+      { "id": "B", "text": "Roblox" },
+      { "id": "C", "text": "Minecraft" },
+      { "id": "D", "text": "Subnautica" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Gaming",
+    "difficulty": "Easy",
+    "explanation": "Minecraft debuted under Mojang and is the best-selling video game of all time with over 300 million copies sold.",
+    "source": "Mojang Studios"
+  },
+  {
+    "id": "gm_003",
+    "questionText": "What is the name of the protagonist's daughter whom Joel must escort in Naughty Dog's 'The Last of Us'?",
+    "options": [
+      { "id": "A", "text": "Sarah" },
+      { "id": "B", "text": "Ellie" },
+      { "id": "C", "text": "Tess" },
+      { "id": "D", "text": "Abby" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Gaming",
+    "difficulty": "Medium",
+    "explanation": "While Sarah was Joel's biological daughter who passed away in the prologue, Ellie is the immune girl he escorts across the US.",
+    "source": "Sony PlayStation / Naughty Dog"
+  },
+  {
+    "id": "gm_004",
+    "questionText": "In competitive esports, what does the acronym 'MOBA' stand for?",
+    "options": [
+      { "id": "A", "text": "Multiplayer Online Battle Arena" },
+      { "id": "B", "text": "Massive Open Battlefield Arena" },
+      { "id": "C", "text": "Military Operations Base Assault" },
+      { "id": "D", "text": "Massive Online Battle Action" }
+    ],
+    "correctAnswerId": "A",
+    "category": "Gaming",
+    "difficulty": "Medium",
+    "explanation": "MOBA genres include genre staples like League of Legends and Dota 2.",
+    "source": "Esports Insider"
+  },
+  {
+    "id": "gm_005",
+    "questionText": "Which studio developed the critically acclaimed 2022 Souls-like game 'Elden Ring' in collaboration with George R.R. Martin?",
+    "options": [
+      { "id": "A", "text": "Bethesda Game Studios" },
+      { "id": "B", "text": "FromSoftware" },
+      { "id": "C", "text": "Capcom" },
+      { "id": "D", "text": "CD Projekt Red" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Gaming",
+    "difficulty": "Easy",
+    "explanation": "FromSoftware, directed by Hidetaka Miyazaki, created Elden Ring which swept Game of the Year awards in 2022.",
+    "source": "FromSoftware / Bandai Namco"
+  },
+  {
+    "id": "gm_006",
+    "questionText": "In 'Portal' (2007), what is the name of the rogue artificial intelligence guiding Chell through test chambers?",
+    "options": [
+      { "id": "A", "text": "SHODAN" },
+      { "id": "B", "text": "HAL 9000" },
+      { "id": "C", "text": "GLaDOS" },
+      { "id": "D", "text": "Cortana" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Gaming",
+    "difficulty": "Medium",
+    "explanation": "GLaDOS stands for Genetic Lifeform and Disk Operating System in Valve's Portal series.",
+    "source": "Valve Corporation"
+  },
+  {
+    "id": "gm_007",
+    "questionText": "What year was the original Sony PlayStation console first released in Japan?",
+    "options": [
+      { "id": "A", "text": "1991" },
+      { "id": "B", "text": "1994" },
+      { "id": "C", "text": "1997" },
+      { "id": "D", "text": "2000" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Gaming",
+    "difficulty": "Hard",
+    "explanation": "The revolutionary CD-ROM home console launched in Japan in December 1994 before worldwide release in 1995.",
+    "source": "Sony Interactive Entertainment"
+  },
+  {
+    "id": "sl_001",
+    "questionText": "Which ancient rock fortress and palace complex in Sri Lanka was built by King Kashyapa in the 5th century CE?",
+    "options": [
+      { "id": "A", "text": "Yapahuwa" },
+      { "id": "B", "text": "Sigiriya (Lion Rock)" },
+      { "id": "C", "text": "Dambulla" },
+      { "id": "D", "text": "Ritigala" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Sri Lanka Quiz",
+    "difficulty": "Easy",
+    "explanation": "Sigiriya is a UNESCO World Heritage site renowned for its sheer granite summit palace, water gardens, and ancient frescoes.",
+    "source": "Central Cultural Fund of Sri Lanka"
+  },
+  {
+    "id": "sl_002",
+    "questionText": "Sri Lanka won its historic first ICC Cricket World Cup championship in 1996 under the captaincy of which legend?",
+    "options": [
+      { "id": "A", "text": "Sanath Jayasuriya" },
+      { "id": "B", "text": "Aravinda de Silva" },
+      { "id": "C", "text": "Arjuna Ranatunga" },
+      { "id": "D", "text": "Kumar Sangakkara" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Sri Lanka Quiz",
+    "difficulty": "Easy",
+    "explanation": "Arjuna Ranatunga led the national team to victory in Lahore, Pakistan against Australia in March 1996.",
+    "source": "Sri Lanka Cricket (SLC)"
+  },
+  {
+    "id": "sl_003",
+    "questionText": "What is the longest river flowing through Sri Lanka, measuring approximately 335 kilometers?",
+    "options": [
+      { "id": "A", "text": "Kelani River" },
+      { "id": "B", "text": "Kalu River" },
+      { "id": "C", "text": "Mahaweli River" },
+      { "id": "D", "text": "Walawe River" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Sri Lanka Quiz",
+    "difficulty": "Easy",
+    "explanation": "The Mahaweli River originates in the central highlands and reaches the Bay of Bengal at Trincomalee.",
+    "source": "Department of Survey Sri Lanka"
+  },
+  {
+    "id": "sl_004",
+    "questionText": "Which sacred Buddhist relic is enshrined within the historic Sri Dalada Maligawa in Kandy?",
+    "options": [
+      { "id": "A", "text": "The Sacred Collarbone" },
+      { "id": "B", "text": "The Sacred Tooth Relic" },
+      { "id": "C", "text": "The Sacred Footprint" },
+      { "id": "D", "text": "The Sacred Hair Relic" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Sri Lanka Quiz",
+    "difficulty": "Easy",
+    "explanation": "The Temple of the Sacred Tooth Relic in Kandy houses the revered relic of Gautama Buddha.",
+    "source": "Sri Dalada Maligawa Heritage Records"
+  },
+  {
+    "id": "sl_005",
+    "questionText": "What is the highest mountain peak in Sri Lanka, standing at 2,524 meters above sea level?",
+    "options": [
+      { "id": "A", "text": "Adam's Peak (Sri Pada)" },
+      { "id": "B", "text": "Pidurutalagala (Mount Pedro)" },
+      { "id": "C", "text": "Kirigalpotta" },
+      { "id": "D", "text": "Knuckles Peak" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Sri Lanka Quiz",
+    "difficulty": "Medium",
+    "explanation": "Pidurutalagala, located in Nuwara Eliya, is Sri Lanka's tallest geographical elevation.",
+    "source": "Survey Department of Sri Lanka"
+  },
+  {
+    "id": "sl_006",
+    "questionText": "In 1960, who made world political history by becoming the world's first democratically elected female prime minister?",
+    "options": [
+      { "id": "A", "text": "Sirimavo Bandaranaike" },
+      { "id": "B", "text": "Indira Gandhi" },
+      { "id": "C", "text": "Margaret Thatcher" },
+      { "id": "D", "text": "Golda Meir" }
+    ],
+    "correctAnswerId": "A",
+    "category": "Sri Lanka Quiz",
+    "difficulty": "Medium",
+    "explanation": "Sirimavo Bandaranaike was elected Prime Minister of Ceylon (now Sri Lanka) in July 1960.",
+    "source": "Parliament of Sri Lanka"
+  },
+  {
+    "id": "sl_007",
+    "questionText": "Which famous 16th-century European fortified city in Southern Sri Lanka features Dutch, Portuguese, and British colonial ramparts?",
+    "options": [
+      { "id": "A", "text": "Jaffna Fort" },
+      { "id": "B", "text": "Galle Fort" },
+      { "id": "C", "text": "Batticaloa Fort" },
+      { "id": "D", "text": "Fredrick Fort" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Sri Lanka Quiz",
+    "difficulty": "Easy",
+    "explanation": "Galle Fort on the southwestern coast is an intact UNESCO World Heritage fortress founded by the Portuguese and expanded by the Dutch.",
+    "source": "UNESCO Heritage Centre"
+  },
+  {
+    "id": "kf_001",
+    "questionText": "Which marine animal is known to hold hands while sleeping so they don't drift away from each other?",
+    "options": [
+      { "id": "A", "text": "Sea Otters" },
+      { "id": "B", "text": "Dolphins" },
+      { "id": "C", "text": "Penguins" },
+      { "id": "D", "text": "Seals" }
+    ],
+    "correctAnswerId": "A",
+    "category": "Kids & Family",
+    "difficulty": "Easy",
+    "explanation": "Sea otters often float in 'rafts' on their backs and hold paws with family members to stay anchored together.",
+    "source": "Monterey Bay Aquarium"
+  },
+  {
+    "id": "kf_002",
+    "questionText": "What color do flamingos turn naturally due to the carotenoids in the algae and brine shrimp they eat?",
+    "options": [
+      { "id": "A", "text": "Bright Blue" },
+      { "id": "B", "text": "Pink and Orange" },
+      { "id": "C", "text": "Emerald Green" },
+      { "id": "D", "text": "Deep Purple" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Kids & Family",
+    "difficulty": "Easy",
+    "explanation": "Flamingo chicks are born dull grey; their vibrant pink feathers come from pigments in their diet.",
+    "source": "National Geographic Kids"
+  },
+  {
+    "id": "kf_003",
+    "questionText": "In Pixar's 'Finding Nemo', what kind of fish is Nemo?",
+    "options": [
+      { "id": "A", "text": "Blue Tang" },
+      { "id": "B", "text": "Clownfish" },
+      { "id": "C", "text": "Angelfish" },
+      { "id": "D", "text": "Pufferfish" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Kids & Family",
+    "difficulty": "Easy",
+    "explanation": "Nemo and his father Marlin are clownfish living inside a protective sea anemone.",
+    "source": "Disney Pixar Studios"
+  },
+  {
+    "id": "kf_004",
+    "questionText": "How many hearts does an octopus have?",
+    "options": [
+      { "id": "A", "text": "One" },
+      { "id": "B", "text": "Two" },
+      { "id": "C", "text": "Three" },
+      { "id": "D", "text": "Four" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Kids & Family",
+    "difficulty": "Medium",
+    "explanation": "Octopuses have three hearts: two pump blood to the gills, and one larger systemic heart pumps blood to the rest of the body.",
+    "source": "Smithsonian Ocean Portal"
+  },
+  {
+    "id": "kf_005",
+    "questionText": "What is the largest living mammal on planet Earth?",
+    "options": [
+      { "id": "A", "text": "African Bush Elephant" },
+      { "id": "B", "text": "Blue Whale" },
+      { "id": "C", "text": "Colossal Squid" },
+      { "id": "D", "text": "Giraffe" }
+    ],
+    "correctAnswerId": "B",
+    "category": "Kids & Family",
+    "difficulty": "Easy",
+    "explanation": "The blue whale can reach lengths of 30 meters and weigh up to 200 metric tons, making it larger than any known dinosaur.",
+    "source": "World Wildlife Fund"
+  },
+  {
+    "id": "kf_006",
+    "questionText": "In the solar system, which planet is famous for having giant, bright icy rings that you can see through a telescope?",
+    "options": [
+      { "id": "A", "text": "Mars" },
+      { "id": "B", "text": "Jupiter" },
+      { "id": "C", "text": "Saturn" },
+      { "id": "D", "text": "Venus" }
+    ],
+    "correctAnswerId": "C",
+    "category": "Kids & Family",
+    "difficulty": "Easy",
+    "explanation": "Saturn is surrounded by thousands of beautiful ringlets composed mostly of water-ice particles.",
+    "source": "NASA Space Place"
+  }
+]

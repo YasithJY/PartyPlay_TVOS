@@ -1,0 +1,23 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "layers" : [
+    {
+      "idiom" : "tv",
+      "filename" : "Back.png",
+      "role" : "back"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "Middle.png",
+      "role" : "middle"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "Front.png",
+      "role" : "front"
+    }
+  ]
+}
