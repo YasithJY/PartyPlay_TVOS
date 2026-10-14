@@ -42,25 +42,28 @@ public struct LeaderboardView: View {
                 }
                 .padding(.top, AppSpacing.tvSafeMarginVertical)
                 
-                // Podium Presentation for Top 3
-                HStack(alignment: .bottom, spacing: 32) {
+                // Podium Presentation for Top 3 (or Solo Champion)
+                let isSolo = (viewModel.runnerUp == nil && viewModel.thirdPlace == nil)
+                HStack(alignment: .bottom, spacing: isSolo ? 0 : 32) {
                     // 2nd Place (Silver)
                     if let runnerUp = viewModel.runnerUp {
                         PodiumColumn(
                             entry: runnerUp,
                             medalTitle: "2ND PLACE",
-                            medalColor: Color(red: 0.75, green: 0.75, blue: 0.75),
-                            height: 180
+                            medalColor: Color(red: 0.78, green: 0.78, blue: 0.82),
+                            width: 220,
+                            height: 190
                         )
                     }
                     
-                    // 1st Place (Gold Winner)
+                    // 1st Place (Gold Winner / Solo Champion)
                     if let winner = viewModel.winner {
                         PodiumColumn(
                             entry: winner,
-                            medalTitle: "CHAMPION",
+                            medalTitle: isSolo ? "CHAMPION • SOLO HOST" : "CHAMPION",
                             medalColor: AppColors.accentGold,
-                            height: 240,
+                            width: isSolo ? 320 : 250,
+                            height: 250,
                             isWinner: true
                         )
                     }
@@ -70,8 +73,9 @@ public struct LeaderboardView: View {
                         PodiumColumn(
                             entry: third,
                             medalTitle: "3RD PLACE",
-                            medalColor: Color(red: 0.80, green: 0.50, blue: 0.20),
-                            height: 140
+                            medalColor: Color(red: 0.82, green: 0.52, blue: 0.25),
+                            width: 220,
+                            height: 150
                         )
                     }
                 }
@@ -178,38 +182,83 @@ public struct LeaderboardView: View {
     }
 }
 
-/// Helper view for rendering podium pedestals.
+/// Helper view for rendering podium pedestals with authentic game-show aesthetics.
 private struct PodiumColumn: View {
     let entry: LeaderboardEntry
     let medalTitle: String
     let medalColor: Color
+    var width: CGFloat = 220
     let height: CGFloat
     var isWinner: Bool = false
     
     var body: some View {
         VStack(spacing: 12) {
-            PlayerAvatarView(player: entry.player, size: isWinner ? 96 : 80)
+            PlayerAvatarView(player: entry.player, size: isWinner ? 96 : 80, maxWidth: width)
             
             Text("\(entry.totalScore) pts")
                 .font(AppTypography.headline)
                 .foregroundColor(medalColor)
             
-            VStack {
+            VStack(spacing: 6) {
                 Text(medalTitle)
-                    .font(.system(size: 16, weight: .black))
+                    .font(.system(size: 14, weight: .black))
                     .foregroundColor(medalColor)
-                    .tracking(2)
+                    .tracking(2.5)
                     .padding(.top, 14)
+                
                 Spacer()
+                
+                // Central rank emblem
+                ZStack {
+                    Circle()
+                        .fill(medalColor.opacity(0.18))
+                        .frame(width: 60, height: 60)
+                    
+                    Image(systemName: isWinner ? "crown.fill" : (medalTitle.contains("2ND") ? "medal.fill" : "star.fill"))
+                        .font(.system(size: 28, weight: .bold))
+                        .foregroundColor(medalColor)
+                }
+                
+                Text(isWinner ? "#1" : (medalTitle.contains("2ND") ? "#2" : "#3"))
+                    .font(.system(size: 34, weight: .black, design: .rounded))
+                    .foregroundColor(.white)
+                
+                Spacer()
+                
+                // Bottom stat pill
+                HStack(spacing: 8) {
+                    Text("\(Int(entry.accuracyPercentage))% Acc")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(AppColors.neonCyan)
+                    Text("•")
+                        .foregroundColor(AppColors.textMuted)
+                    Text("\(entry.correctAnswersCount)/\(entry.totalQuestionsCount)")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                .padding(.horizontal, 14)
+                .padding(.vertical, 6)
+                .background(Capsule().fill(Color.black.opacity(0.35)))
+                .padding(.bottom, 12)
             }
-            .frame(width: 220, height: height)
+            .frame(width: width, height: height)
             .background(
                 RoundedRectangle(cornerRadius: AppSpacing.cardCornerRadius)
-                    .fill(AppColors.cardBackground)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                medalColor.opacity(0.24),
+                                AppColors.cardBackground
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
                     .overlay(
                         RoundedRectangle(cornerRadius: AppSpacing.cardCornerRadius)
-                            .stroke(medalColor, lineWidth: isWinner ? 3 : 1.5)
+                            .stroke(medalColor, lineWidth: isWinner ? 3.5 : 1.5)
                     )
+                    .shadow(color: medalColor.opacity(isWinner ? 0.35 : 0.15), radius: 18, x: 0, y: 8)
             )
         }
     }

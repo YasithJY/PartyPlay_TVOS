@@ -2,7 +2,13 @@ import SwiftUI
 
 /// Reusable focusable container card with tvOS parallax focus lift, glowing borders, and rounded corners.
 public struct FocusableGameCard<Content: View>: View {
-    @FocusState private var isCardFocused: Bool
+    @Environment(\.isFocused) private var isEnvironmentFocused: Bool
+    @FocusState private var isSelfFocused: Bool
+    
+    private var isFocused: Bool {
+        isEnvironmentFocused || isSelfFocused
+    }
+    
     private let content: Content
     private let cornerRadius: CGFloat
     private let action: () -> Void
@@ -23,25 +29,26 @@ public struct FocusableGameCard<Content: View>: View {
                 .padding(AppSpacing.medium)
                 .background(
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(isCardFocused ? AppColors.cardBackgroundHover : AppColors.cardBackground)
+                        .fill(isFocused ? AppColors.cardBackgroundHover : AppColors.cardBackground)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .stroke(
-                            isCardFocused ? AppColors.neonCyan : AppColors.cardBorder.opacity(0.6),
-                            lineWidth: isCardFocused ? 3.5 : 1.5
+                            isFocused ? AppColors.neonCyan : AppColors.cardBorder.opacity(0.6),
+                            lineWidth: isFocused ? 3.5 : 1.5
                         )
                 )
                 .shadow(
-                    color: isCardFocused ? AppColors.neonCyan.opacity(0.4) : Color.black.opacity(0.3),
-                    radius: isCardFocused ? 24 : 10,
+                    color: isFocused ? AppColors.neonCyan.opacity(0.4) : Color.black.opacity(0.3),
+                    radius: isFocused ? 20 : 10,
                     x: 0,
-                    y: isCardFocused ? 12 : 5
+                    y: isFocused ? 8 : 4
                 )
         }
         .buttonStyle(.plain)
-        .focused($isCardFocused)
-        .scaleEffect(isCardFocused ? 1.05 : 1.0)
-        .animation(.easeInOut(duration: 0.22), value: isCardFocused)
+        .focusEffectDisabled()
+        .focused($isSelfFocused)
+        .scaleEffect(isFocused ? 1.03 : 1.0)
+        .animation(.easeInOut(duration: 0.22), value: isFocused)
     }
 }

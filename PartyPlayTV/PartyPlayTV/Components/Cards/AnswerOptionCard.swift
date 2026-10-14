@@ -2,7 +2,12 @@ import SwiftUI
 
 /// Answer option card supporting Siri Remote focus, letter badges, and correct/incorrect feedback states.
 public struct AnswerOptionCard: View {
-    @FocusState private var isFocused: Bool
+    @Environment(\.isFocused) private var isEnvironmentFocused: Bool
+    @FocusState private var isSelfFocused: Bool
+    
+    private var isFocused: Bool {
+        isEnvironmentFocused || isSelfFocused
+    }
     
     private let option: AnswerOption
     private let indexLetter: String
@@ -53,45 +58,61 @@ public struct AnswerOptionCard: View {
         return isFocused ? AppColors.neonCyan : AppColors.cardBorder
     }
     
+    private var badgeBackgroundColor: Color {
+        if isFocused {
+            return AppColors.neonCyan
+        }
+        if isAnswerSubmitted {
+            if isCorrectChoice {
+                return AppColors.correctGreen
+            } else if isSelected {
+                return AppColors.incorrectRed
+            }
+        }
+        return AppColors.electricPurple
+    }
+    
     public var body: some View {
         Button(action: {
             if !isAnswerSubmitted {
                 action()
             }
         }) {
-            HStack(spacing: 24) {
+            HStack(spacing: 20) {
                 // Index letter badge (A, B, C, D)
                 Text(indexLetter)
                     .font(AppTypography.cardTitle)
                     .foregroundColor(isFocused ? .black : .white)
-                    .frame(width: 56, height: 56)
+                    .frame(width: 52, height: 52)
                     .background(
-                        Circle().fill(isFocused ? AppColors.neonCyan : AppColors.electricPurple)
+                        Circle().fill(badgeBackgroundColor)
                     )
                 
                 Text(option.text)
                     .font(AppTypography.optionText)
                     .foregroundColor(AppColors.textPrimary)
                     .lineLimit(2)
+                    .minimumScaleFactor(0.85)
                     .multilineTextAlignment(.leading)
                 
-                Spacer()
+                Spacer(minLength: 8)
                 
                 // Result Feedback icon
                 if isAnswerSubmitted {
                     if isCorrectChoice {
                         Image(systemName: "checkmark.circle.fill")
-                            .font(.system(size: 38))
+                            .font(.system(size: 36))
                             .foregroundColor(AppColors.correctGreen)
                     } else if isSelected {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 38))
+                            .font(.system(size: 36))
                             .foregroundColor(AppColors.incorrectRed)
                     }
                 }
             }
-            .padding(.horizontal, 28)
-            .padding(.vertical, 22)
+            .padding(.horizontal, 24)
+            .padding(.vertical, 18)
+            .frame(maxWidth: .infinity, minHeight: 90)
             .background(
                 RoundedRectangle(cornerRadius: AppSpacing.buttonCornerRadius)
                     .fill(cardBackgroundFill)
@@ -101,16 +122,17 @@ public struct AnswerOptionCard: View {
                     .stroke(borderStrokeColor, lineWidth: (isFocused || isAnswerSubmitted) ? 3.5 : 1.5)
             )
             .shadow(
-                color: isFocused ? AppColors.neonCyan.opacity(0.4) : Color.black.opacity(0.2),
-                radius: isFocused ? 20 : 6,
+                color: isFocused ? AppColors.neonCyan.opacity(0.35) : Color.black.opacity(0.2),
+                radius: isFocused ? 16 : 4,
                 x: 0,
-                y: isFocused ? 8 : 3
+                y: isFocused ? 6 : 2
             )
         }
         .buttonStyle(.plain)
-        .focused($isFocused)
+        .focusEffectDisabled()
+        .focused($isSelfFocused)
         .disabled(isAnswerSubmitted)
-        .scaleEffect(isFocused ? 1.04 : 1.0)
+        .scaleEffect(isFocused ? 1.025 : 1.0)
         .animation(.easeInOut(duration: 0.2), value: isFocused)
     }
 }

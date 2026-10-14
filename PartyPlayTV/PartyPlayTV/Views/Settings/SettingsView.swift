@@ -63,36 +63,9 @@ public struct SettingsView: View {
                     )
                     
                     // Clear History Action Row
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Clear Match History")
-                                .font(AppTypography.headline)
-                                .foregroundColor(.white)
-                            Text("Removes all saved past match results and high scores from local storage")
-                                .font(AppTypography.body)
-                                .foregroundColor(AppColors.textSecondary)
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            viewModel.clearGameHistory()
-                        }) {
-                            Text("Clear Data")
-                                .font(AppTypography.body)
-                                .foregroundColor(AppColors.incorrectRed)
-                                .padding(.horizontal, 24)
-                                .padding(.vertical, 12)
-                                .background(Capsule().fill(AppColors.incorrectRed.opacity(0.15)))
-                                .overlay(Capsule().stroke(AppColors.incorrectRed.opacity(0.5), lineWidth: 1.5))
-                        }
-                        .buttonStyle(.plain)
+                    ClearHistoryRow {
+                        viewModel.clearGameHistory()
                     }
-                    .padding(24)
-                    .background(
-                        RoundedRectangle(cornerRadius: AppSpacing.buttonCornerRadius)
-                            .fill(AppColors.cardBackground)
-                    )
                 }
                 .padding(.horizontal, AppSpacing.tvSafeMarginHorizontal)
                 
@@ -122,10 +95,55 @@ public struct SettingsView: View {
     }
 }
 
+private struct ClearHistoryRow: View {
+    let action: () -> Void
+    @FocusState private var isFocused: Bool
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Clear Match History")
+                    .font(AppTypography.headline)
+                    .foregroundColor(.white)
+                Text("Removes all saved past match results and high scores from local storage")
+                    .font(AppTypography.body)
+                    .foregroundColor(AppColors.textSecondary)
+            }
+            
+            Spacer()
+            
+            Button(action: action) {
+                Text("Clear Data")
+                    .font(AppTypography.body)
+                    .fontWeight(.semibold)
+                    .foregroundColor(AppColors.incorrectRed)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 12)
+                    .background(Capsule().fill(AppColors.incorrectRed.opacity(isFocused ? 0.3 : 0.15)))
+                    .overlay(
+                        Capsule().stroke(isFocused ? AppColors.neonCyan : AppColors.incorrectRed.opacity(0.6), lineWidth: isFocused ? 3 : 1.5)
+                    )
+                    .shadow(color: isFocused ? AppColors.neonCyan.opacity(0.4) : Color.clear, radius: 12)
+            }
+            .buttonStyle(.plain)
+            .focusEffectDisabled()
+            .focused($isFocused)
+            .scaleEffect(isFocused ? 1.05 : 1.0)
+            .animation(.easeInOut(duration: 0.2), value: isFocused)
+        }
+        .padding(24)
+        .background(
+            RoundedRectangle(cornerRadius: AppSpacing.buttonCornerRadius)
+                .fill(AppColors.cardBackground)
+        )
+    }
+}
+
 private struct SettingToggleRow: View {
     let title: String
     let subtitle: String
     @Binding var isOn: Bool
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         HStack {
@@ -150,13 +168,21 @@ private struct SettingToggleRow: View {
                         .font(.system(size: 28))
                         .foregroundColor(isOn ? AppColors.correctGreen : AppColors.textMuted)
                 }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
+                .padding(.horizontal, 22)
+                .padding(.vertical, 12)
                 .background(
-                    Capsule().fill(isOn ? AppColors.correctGreen.opacity(0.15) : AppColors.cardBackgroundHover)
+                    Capsule().fill(isOn ? AppColors.correctGreen.opacity(0.18) : AppColors.cardBackgroundHover)
                 )
+                .overlay(
+                    Capsule().stroke(isFocused ? AppColors.neonCyan : (isOn ? AppColors.correctGreen.opacity(0.7) : AppColors.cardBorder), lineWidth: isFocused ? 3 : 1.5)
+                )
+                .shadow(color: isFocused ? AppColors.neonCyan.opacity(0.4) : Color.clear, radius: 12)
             }
             .buttonStyle(.plain)
+            .focusEffectDisabled()
+            .focused($isFocused)
+            .scaleEffect(isFocused ? 1.05 : 1.0)
+            .animation(.easeInOut(duration: 0.2), value: isFocused)
         }
         .padding(24)
         .background(

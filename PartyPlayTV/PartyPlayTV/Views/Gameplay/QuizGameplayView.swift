@@ -2,8 +2,13 @@ import SwiftUI
 
 /// Primary tvOS gameplay screen with questions, animated timer, answer options, and immediate feedback reveal.
 public struct QuizGameplayView: View {
+    public enum GameplayFocusTarget: Hashable {
+        case option(Int)
+        case nextButton
+    }
+    
     @ObservedObject var gameEngine: GameEngine
-    @FocusState private var focusedOptionIndex: Int?
+    @FocusState private var focusedTarget: GameplayFocusTarget?
     @State private var autoAdvanceTask: DispatchWorkItem?
     
     private let onGameFinished: () -> Void
@@ -24,7 +29,7 @@ public struct QuizGameplayView: View {
     public var body: some View {
         ZStack {
             if let question = gameEngine.currentQuestion {
-                VStack(spacing: AppSpacing.large) {
+                VStack(spacing: AppSpacing.medium) {
                     // Top Status Bar: Category, Question Number, Countdown Timer & Current Score
                     HStack(alignment: .center) {
                         // Category & Progress
@@ -61,16 +66,16 @@ public struct QuizGameplayView: View {
                     .padding(.horizontal, AppSpacing.tvSafeMarginHorizontal)
                     
                     // Question Prompt Display Card
-                    VStack(spacing: 12) {
+                    VStack(spacing: 8) {
                         Text(question.questionText)
                             .font(AppTypography.questionPrompt)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .lineLimit(3)
-                            .minimumScaleFactor(0.8)
-                            .padding(.horizontal, 48)
-                            .padding(.vertical, 32)
-                            .frame(maxWidth: .infinity, minHeight: 180)
+                            .minimumScaleFactor(0.85)
+                            .padding(.horizontal, 36)
+                            .padding(.vertical, 24)
+                            .frame(maxWidth: .infinity, minHeight: 140)
                             .background(
                                 RoundedRectangle(cornerRadius: AppSpacing.cardCornerRadius)
                                     .fill(AppColors.cardBackground)
@@ -83,13 +88,13 @@ public struct QuizGameplayView: View {
                     }
                     .padding(.horizontal, AppSpacing.tvSafeMarginHorizontal)
                     
-                    // 2x2 Answer Option Grid
+                    // 2x2 Answer Option Grid with ample responsive spacing
                     LazyVGrid(
                         columns: [
-                            GridItem(.flexible(), spacing: AppSpacing.large),
-                            GridItem(.flexible(), spacing: AppSpacing.large)
+                            GridItem(.flexible(), spacing: 36),
+                            GridItem(.flexible(), spacing: 36)
                         ],
-                        spacing: AppSpacing.large
+                        spacing: 24
                     ) {
                         ForEach(Array(question.options.enumerated()), id: \.element.id) { index, option in
                             let letter = index < optionLetters.count ? optionLetters[index] : "\(index + 1)"
@@ -105,18 +110,19 @@ public struct QuizGameplayView: View {
                             ) {
                                 selectAnswer(option.id)
                             }
-                            .focused($focusedOptionIndex, equals: index)
+                            .focused($focusedTarget, equals: .option(index))
                         }
                     }
                     .padding(.horizontal, AppSpacing.tvSafeMarginHorizontal)
                     
                     // Post-Answer Explanation Banner & Controls
                     if gameEngine.isAnswerSubmitted {
-                        HStack(spacing: 24) {
-                            VStack(alignment: .leading, spacing: 4) {
+                        HStack(alignment: .center, spacing: 28) {
+                            VStack(alignment: .leading, spacing: 6) {
                                 HStack(spacing: 10) {
                                     let isHostCorrect = (gameEngine.selectedOptionId == question.correctAnswerId)
                                     Image(systemName: isHostCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                        .font(.system(size: 26))
                                         .foregroundColor(isHostCorrect ? AppColors.correctGreen : AppColors.incorrectRed)
                                     
                                     Text(isHostCorrect ? "Correct Answer!" : "Incorrect!")
@@ -128,6 +134,7 @@ public struct QuizGameplayView: View {
                                     .font(AppTypography.body)
                                     .foregroundColor(AppColors.textSecondary)
                                     .lineLimit(2)
+                                    .minimumScaleFactor(0.85)
                             }
                             
                             Spacer()
@@ -141,15 +148,17 @@ public struct QuizGameplayView: View {
                                 }
                             }
                             .buttonStyle(PrimaryButtonStyle())
+                            .focused($focusedTarget, equals: .nextButton)
                         }
-                        .padding(24)
+                        .padding(.horizontal, 28)
+                        .padding(.vertical, 20)
                         .background(
                             RoundedRectangle(cornerRadius: AppSpacing.buttonCornerRadius)
                                 .fill(AppColors.cardBackground)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: AppSpacing.buttonCornerRadius)
                                         .stroke(AppColors.neonCyan.opacity(0.8), lineWidth: 2)
-                                )
+                                    )
                         )
                         .padding(.horizontal, AppSpacing.tvSafeMarginHorizontal)
                         .transition(.move(edge: .bottom).combined(with: .opacity))
@@ -163,7 +172,7 @@ public struct QuizGameplayView: View {
         }
         .ambientGameBackground()
         .onAppear {
-            focusedOptionIndex = 0
+            focusedTarget = .option(0)
         }
         .onDisappear {
             autoAdvanceTask?.cancel()
@@ -174,6 +183,13 @@ public struct QuizGameplayView: View {
     private func selectAnswer(_ optionId: String) {
         guard !gameEngine.isAnswerSubmitted else { return }
         gameEngine.submitAnswer(optionId: optionId)
+        
+        // Auto-focus the Next Question / Leaderboard action button
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                focusedTarget = .nextButton
+            }
+        }
         
         // Schedule auto-advancement after 5 seconds if host doesn't manually press Next
         autoAdvanceTask?.cancel()
@@ -188,7 +204,7 @@ public struct QuizGameplayView: View {
         autoAdvanceTask?.cancel()
         if gameEngine.currentQuestionIndex + 1 < gameEngine.totalQuestions {
             gameEngine.advanceToNextQuestion()
-            focusedOptionIndex = 0
+            focusedTarget = .option(0)
         } else {
             gameEngine.finishGame()
             onGameFinished()

@@ -2,15 +2,22 @@ import SwiftUI
 
 /// Category and Game Mode selection card displaying custom theme colors and icons.
 public struct GameModeCard: View {
-    @FocusState private var isFocused: Bool
+    @Environment(\.isFocused) private var isEnvironmentFocused: Bool
+    @FocusState private var isSelfFocused: Bool
+    
+    private var isFocused: Bool {
+        isEnvironmentFocused || isSelfFocused
+    }
     
     private let category: QuizCategory
     private let isSelected: Bool
+    private let width: CGFloat?
     private let action: () -> Void
     
-    public init(category: QuizCategory, isSelected: Bool = false, action: @escaping () -> Void) {
+    public init(category: QuizCategory, isSelected: Bool = false, width: CGFloat? = nil, action: @escaping () -> Void) {
         self.category = category
         self.isSelected = isSelected
+        self.width = width
         self.action = action
     }
     
@@ -56,7 +63,8 @@ public struct GameModeCard: View {
                 }
             }
             .padding(24)
-            .frame(width: 440, height: 260)
+            .frame(width: width)
+            .frame(maxWidth: width == nil ? .infinity : width, minHeight: 220, maxHeight: 260)
             .background(
                 RoundedRectangle(cornerRadius: AppSpacing.cardCornerRadius)
                     .fill(isFocused ? AppColors.cardBackgroundHover : AppColors.cardBackground)
@@ -70,14 +78,15 @@ public struct GameModeCard: View {
             )
             .shadow(
                 color: isFocused ? themeColor.opacity(0.5) : Color.black.opacity(0.25),
-                radius: isFocused ? 24 : 8,
+                radius: isFocused ? 20 : 8,
                 x: 0,
-                y: isFocused ? 10 : 4
+                y: isFocused ? 8 : 4
             )
         }
         .buttonStyle(.plain)
-        .focused($isFocused)
-        .scaleEffect(isFocused ? 1.05 : 1.0)
+        .focusEffectDisabled()
+        .focused($isSelfFocused)
+        .scaleEffect(isFocused ? 1.03 : 1.0)
         .animation(.easeInOut(duration: 0.22), value: isFocused)
     }
 }

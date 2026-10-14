@@ -4,10 +4,12 @@ import SwiftUI
 public struct PlayerAvatarView: View {
     private let player: Player
     private let size: CGFloat
+    private let maxWidth: CGFloat?
     
-    public init(player: Player, size: CGFloat = 80) {
+    public init(player: Player, size: CGFloat = 80, maxWidth: CGFloat? = nil) {
         self.player = player
         self.size = size
+        self.maxWidth = maxWidth
     }
     
     public var body: some View {
@@ -43,6 +45,7 @@ public struct PlayerAvatarView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(AppColors.textPrimary)
                 .lineLimit(1)
+                .minimumScaleFactor(0.75)
             
             if player.isSimulated {
                 Text("BOT")
@@ -53,6 +56,6 @@ public struct PlayerAvatarView: View {
                     .background(Capsule().fill(AppColors.neonCyan.opacity(0.18)))
             }
         }
-        .frame(width: size + 40)
+        .frame(maxWidth: maxWidth ?? (size + 120))
     }
 }

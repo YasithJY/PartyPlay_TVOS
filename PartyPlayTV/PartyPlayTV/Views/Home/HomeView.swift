@@ -97,7 +97,7 @@ public struct HomeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: AppSpacing.large) {
                             ForEach(viewModel.featuredCategories) { category in
-                                GameModeCard(category: category) {
+                                GameModeCard(category: category, width: 440) {
                                     onNavigate(.gameSetup(category))
                                 }
                             }
